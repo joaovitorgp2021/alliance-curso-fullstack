@@ -1,15 +1,15 @@
 <template>
-   <div>
+  <div>
     <b-card id="card-produto" class="text-center"
       :title="produto.descricao"
-      :sub-title="produto.codigo"
+      :sub-title="produto.codigo.toString()"
       >
       <b-card-text class="bg-secondary text-light">Quantidade {{produto.quantidade}}</b-card-text>
       <b-button class="float-right" v-b-modal="'modal-confirm-delete-'+produto.codigo">
         <b-icon-trash></b-icon-trash>
       </b-button>
     </b-card>
-    <b-modal :id="'modal-confirm-delete-'+ produto.codigo" title="Confirmação" 
+    <b-modal :id="'modal-confirm-delete-'+produto.codigo" title="Confirmação" 
       ok-variant='danger' cancel-variant="success"
       ok-title='Sim' cancel-title='Não'
       v-on:ok="excluir(produto)"
@@ -40,6 +40,7 @@ export default {
   }
 }
 </script>
+
 <style scoped>
 .card {
     margin-bottom: 10px;
